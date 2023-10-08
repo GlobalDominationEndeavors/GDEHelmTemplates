@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  gde-microservice:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-10-08T18:07:11.664903841+03:00"
+    description: A Helm chart for Kubernetes
+    digest: c2e30abd7c26427b8e2b54bd4e4d0d2aee52891b9fe72f644fc53d353d4351a2
+    name: gde-microservice
+    type: application
+    urls:
+    - gde-microservice-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-10-08T18:07:11.66462316+03:00"

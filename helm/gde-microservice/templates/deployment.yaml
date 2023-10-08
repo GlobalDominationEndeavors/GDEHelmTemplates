@@ -1,0 +1,15 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.deployment.name }}
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+{{ toYaml .Values.deployment.spec.selector | indent 4 }}
+  template:
+    metadata:
+      labels:
+{{ toYaml .Values.deployment.spec.selector.matchLabels | indent 8 }}
+    spec:
+      containers:
+{{ toYaml .Values.deployment.spec.template.containerSpecs | indent 6}}
