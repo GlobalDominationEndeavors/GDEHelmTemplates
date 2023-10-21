@@ -24,7 +24,11 @@ ingress:
             service:
               name: hello-world-service
               port:
-                number: 80
+                number: 443
+    tls:
+    - hosts:
+      - hello-world-service.replaceme.com
+      secretName: hello-world-tls
 deployment:
   name: template-deployment-name
   spec:
@@ -35,6 +39,6 @@ deployment:
     template:
       containerSpecs:
       - name: hello-world
-        image: k8s.gcr.io/echoserver:1.10
+        image: strongergde/test-repository:latest
         ports:
         - containerPort: 8080

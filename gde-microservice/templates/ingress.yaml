@@ -7,4 +7,6 @@ metadata:
 spec:
   ingressClassName: {{ .Values.ingress.spec.ingressClassName }}
   rules:
-{{ toYaml .Values.ingress.spec.rules | indent 4}}
+{{ toYaml .Values.ingress.spec.rules | indent 4 }}
+  tls:
+{{ toYaml .Values.ingress.spec.tls | indent 4 }}
