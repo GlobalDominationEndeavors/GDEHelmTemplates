@@ -1,3 +1,4 @@
+serviceName: template-name
 service:
   name: template-name
   spec:
