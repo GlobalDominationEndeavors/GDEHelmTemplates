@@ -10,36 +10,46 @@ service:
       targetPort: 8080
 ingress:
   name: template-ingress
-  annotations:
-    "cert-manager.io/cluster-issuer": "letsencrypt-issuer"
-    "nginx.ingress.kubernetes.io/rewrite-target": "/$1"
+  ## For cert management and nginx, you can define the following annotations
+  # annotations:
+  #   "cert-manager.io/cluster-issuer": "letsencrypt-issuer"
+  #   "nginx.ingress.kubernetes.io/rewrite-target": "/$1"
+  annotations: {}
   spec:
     ingressClassName: nginx
-    rules:
-    - host: test-host.com
-      http:
-        paths:
-        - path: /hello-world(/|$)(.*)
-          pathType: Prefix
-          backend:
-            service:
-              name: hello-world-service
-              port:
-                number: 443
-    tls:
-    - hosts:
-      - hello-world-service.replaceme.com
-      secretName: hello-world-tls
+    ## Rules can be overwritten as follows ##
+    # rules:
+    # - host: test-host.com
+    #   http:
+    #     paths:
+    #     - path: /hello-world(/|$)(.*)
+    #       pathType: Prefix
+    #       backend:
+    #         service:
+    #           name: hello-world-service
+    #           port:
+    #             number: 443
+    rules: []
+    tls: []
+    ## tls can be overwritten as follows ##
+    # tls:
+    # - hosts:
+    #   - hello-world-service.replaceme.com
+    #   secretName: hello-world-tls
 deployment:
   name: template-deployment-name
   spec:
     replicas: 1
     selector:
-      matchLabels:
-        app: template-app
+      ## matchLabels requires a map of key/value pairs
+      # matchLabels:
+      #   app: template-app
+      matchLabels: {}
     template:
-      containerSpecs:
-      - name: hello-world
-        image: strongergde/test-repository:latest
-        ports:
-        - containerPort: 8080
+      ## containerSpecs should be overwritten like the following
+      # containerSpecs:
+      # - name: hello-world
+      #   image: strongergde/test-repository:latest
+      #   ports:
+      #   - containerPort: 8080
+      containerSpecs: []

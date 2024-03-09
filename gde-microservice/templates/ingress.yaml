@@ -10,3 +10,21 @@ spec:
 {{ toYaml .Values.ingress.spec.rules | indent 4 }}
   tls:
 {{ toYaml .Values.ingress.spec.tls | indent 4 }}
+
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: dev-asdf.stronger-together.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: auth-service
+            port:
+              number: 80
+        path: /auth-service(/|$)(.*)
+        pathType: Prefix
+  tls:
+  - hosts:
+    - dev-asdf.stronger-together.com
+    secretName: auth-service-tls
