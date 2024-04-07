@@ -16,3 +16,4 @@ spec:
       {{ if .Values.sidecar_authentication }}
       initContainers:
 {{ toYaml .Values.deployment.initContainers | indent 6 }}
+      {{ end }}
