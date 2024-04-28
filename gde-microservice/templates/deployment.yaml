@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
 {{ toYaml .Values.deployment.spec.template.containerSpecs | indent 6 }}
-      {{ if .Values.sidecar_authentication }}
+      {{ if .Values.init_containers }}
       initContainers:
 {{ toYaml .Values.deployment.initContainers | indent 6 }}
       {{ end }}

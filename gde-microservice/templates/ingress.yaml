@@ -8,5 +8,7 @@ spec:
   ingressClassName: {{ .Values.ingress.spec.ingressClassName }}
   rules:
 {{ toYaml .Values.ingress.spec.rules | indent 4 }}
+  {{ if .Values.use_tls }}
   tls:
 {{ toYaml .Values.ingress.spec.tls | indent 4 }}
+  {{ end}}

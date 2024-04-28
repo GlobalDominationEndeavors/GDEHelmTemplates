@@ -1,4 +1,6 @@
 serviceName: template-name
+init_containers: false
+use_tls: false
 service:
   name: template-name
   spec:
