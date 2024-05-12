@@ -1,5 +1,6 @@
 serviceName: template-name
 init_containers: false
+authenticate_requests: false
 use_tls: false
 service:
   name: template-name

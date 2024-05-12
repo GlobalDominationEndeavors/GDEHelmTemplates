@@ -1,9 +1,15 @@
+{{- $annotations = .Values.ingress.annotations }}
+{{ if .Values.authentiate_requests }}
+  {{- $hardcoded := dict "nginx.ingress.kubernetes.io/auth-url" "http://auth-service.auth-service.svc.cluster.local/authenticate" }}
+  {{- $annotations := merge $hardcoded .Values.ingress.annotations }}
+{{ end }}
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: {{ .Values.ingress.name }}
   annotations:
-{{ toYaml .Values.ingress.annotations | indent 4 }}
+{{ toYaml $annotations | indent 4 }}
 spec:
   ingressClassName: {{ .Values.ingress.spec.ingressClassName }}
   rules:
