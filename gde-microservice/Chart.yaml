@@ -3,4 +3,9 @@ appVersion: 1.18.0
 description: A Helm chart for Kubernetes
 name: gde-microservice
 type: application
-version: 0.9.4
+version: 0.9.5
+dependency:
+  - name: mysql
+    version: "10.2.4"
+    repository: "https://charts.bitnami.com/bitnami"
+    condition: mysql.enabled

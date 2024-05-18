@@ -57,3 +57,5 @@ deployment:
       #   - containerPort: 8080
       containerSpecs: []
       initContainers: []
+mysql:
+  enabled: false
