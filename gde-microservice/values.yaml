@@ -61,3 +61,6 @@ mysql:
   enabled: false
   auth:
     rootPassword: ""
+    nameOverride: ""
+    fullnameOverride: ""
+    namespaceOverride: ""
