@@ -5,7 +5,10 @@ name: gde-microservice
 type: application
 version: 0.9.5
 dependencies:
-  - name: mysql
+  - name: postgresql
     version: "15.4.0"
     repository: "https://charts.bitnami.com/postgresql"
-    condition: postgress.enabled
+    condition: postgres.enabled
+  - name: common
+    version: 2.x.x
+    repository: oci://registry-1.docker.io/bitnamicharts
