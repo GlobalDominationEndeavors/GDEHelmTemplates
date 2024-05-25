@@ -57,7 +57,7 @@ deployment:
       #   - containerPort: 8080
       containerSpecs: []
       initContainers: []
-mysql:
+postgres:
   enabled: false
   auth:
     rootPassword: ""
