@@ -8,7 +8,8 @@ dependencies:
   - name: postgresql
     version: "15.4.0"
     repository: "https://charts.bitnami.com/postgresql"
-    condition: postgres.enabled
+    condition: postgresql.enabled
   - name: common
     version: 2.x.x
     repository: oci://registry-1.docker.io/bitnamicharts
+    condition: postresql.enabled
